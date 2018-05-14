@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <style>
+    body {
+      /* background: rgb(128, 128, 128); */
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .frame {
+      display: inline-block;
+      position: relative;
+      background: radial-gradient(ellipse closest-side, rgba(255, 255, 0, 1), rgba(255, 255, 0, 0.5));
+    }
+
+    .frame::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 640px;
+      height: 320px;
+      background: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+      animation: pulse 0.8s ease-in-out 0s infinite alternate;
+    }
+
+    .outer {
+      width: 640px;
+      height: 320px;
+    }
+
+    .border {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(245, 245, 0, 1);
+    }
+
+    .inner {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: red;
+      border: 5px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="outer">
+      <div class="border">
+        <div class="inner"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
